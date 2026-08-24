@@ -1,10 +1,16 @@
-# Operating System Files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Logs
-*.log
+# Environment variables & secrets
+.env
+.env.local
+*.env
 
 # Dependencies
 node_modules/
+
+# Disposable design preview artifact
+docs/design-preview.html
+
+# Operating System Files & Logs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
