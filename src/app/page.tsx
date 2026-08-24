@@ -2,51 +2,34 @@ import React from "react";
 import { TopBar } from "@/components/ui/TopBar";
 import { Header } from "@/components/ui/Header";
 import { Hero } from "@/components/sections/Hero";
+import { StandsSection } from "@/components/sections/StandsSection";
+import { ConcoursSection } from "@/components/sections/ConcoursSection";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { EVENT_DETAILS } from "@/lib/constants";
-import { Store, Trophy, Image as ImageIcon, HelpCircle } from "lucide-react";
+import { Image as ImageIcon, HelpCircle } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-navy-main text-white selection:bg-brand-light selection:text-navy-dark">
-      {/* Top Bar d'Annonce */}
-      <TopBar />
+    <div className="min-h-screen flex flex-col bg-navy-main text-white selection:bg-brand-light selection:text-navy-dark relative">
+      {/* Conteneur d'en-tête fixe / sticky persistant */}
+      <div className="sticky top-0 z-50 w-full shadow-lg">
+        {/* Top Bar d'Annonce */}
+        <TopBar />
 
-      {/* Header Sticky avec Navigation */}
-      <Header />
+        {/* Header Sticky avec Navigation */}
+        <Header />
+      </div>
 
       {/* Main Content */}
       <main className="flex-grow">
         {/* Section Hero */}
         <Hero />
 
-        {/* Section Placeholder Stands (Prévue Phase 2) */}
-        <section id="stands" className="py-16 px-4 max-w-[1100px] mx-auto text-center border-b border-white/5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-light text-xs font-semibold uppercase mb-4">
-            <Store className="w-4 h-4" />
-            <span>Formules d'Exposition</span>
-          </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-4">
-            Réservez Votre Stand d'Exposition
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Découvrez nos 3 formules adaptées à la taille de votre entreprise (25 000 FCFA, 35 000 FCFA et 65 000 FCFA).
-          </p>
-        </section>
+        {/* Section Grille des Tarifs de Stands */}
+        <StandsSection />
 
-        {/* Section Placeholder Concours (Prévue Phase 2) */}
-        <section id="concours" className="py-16 px-4 max-w-[1100px] mx-auto text-center border-b border-white/5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-semibold uppercase mb-4">
-            <Trophy className="w-4 h-4" />
-            <span>Concours Métiers</span>
-          </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-4">
-            Concours Pâtissiers & Tailleurs / Stylistes
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            Participez pour 10 000 FCFA et tentez de remporter le Cash Prize de 100 000 FCFA, le trophée et votre attestation.
-          </p>
-        </section>
+        {/* Section Grands Concours Métiers */}
+        <ConcoursSection />
 
         {/* Section Placeholder Galerie 2025 (Prévue Phase 4) */}
         <section id="galerie" className="py-16 px-4 max-w-[1100px] mx-auto text-center border-b border-white/5">

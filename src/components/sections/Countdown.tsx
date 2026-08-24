@@ -12,36 +12,45 @@ interface TimeLeft {
 }
 
 export const Countdown: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
-  const [isHydrated, setIsHydrated] = useState(false);
+
+  const getTargetTimestamp = () => {
+    const parsed = new Date(EVENT_DETAILS.targetDateISO).getTime();
+    if (!isNaN(parsed) && parsed > 0) {
+      return parsed;
+    }
+    return new Date(2026, 11, 1, 9, 0, 0).getTime();
+  };
+
+  const calculateDifference = () => {
+    const target = getTargetTimestamp();
+    const now = new Date().getTime();
+    const difference = target - now;
+
+    if (difference > 0) {
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  };
 
   useEffect(() => {
-    setIsHydrated(true);
+    setMounted(true);
+    setTimeLeft(calculateDifference());
 
-    const calculateTimeLeft = () => {
-      const target = new Date(EVENT_DETAILS.targetDateISO).getTime();
-      const now = new Date().getTime();
-      const difference = target - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
+    const timer = setInterval(() => {
+      setTimeLeft(calculateDifference());
+    }, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -50,28 +59,36 @@ export const Countdown: React.FC = () => {
     return num.toString().padStart(2, "0");
   };
 
+  const displayDays = mounted ? formatTwoDigits(timeLeft.days) : "00";
+  const displayHours = mounted ? formatTwoDigits(timeLeft.hours) : "00";
+  const displayMinutes = mounted ? formatTwoDigits(timeLeft.minutes) : "00";
+  const displaySeconds = mounted ? formatTwoDigits(timeLeft.seconds) : "00";
+
   return (
-    <div className="w-full max-w-xl mx-auto my-8 p-4 rounded-2xl bg-navy-card/60 backdrop-blur-md border border-white/10 shadow-card-glass">
-      <div className="flex items-center justify-center gap-2 mb-3 text-xs sm:text-sm font-semibold tracking-wider text-brand-light uppercase">
-        <Clock className="w-4 h-4 animate-spin" style={{ animationDuration: '6s' }} />
+    <div className="w-full max-w-xl mx-auto my-8 p-4 sm:p-5 rounded-2xl bg-navy-card/80 backdrop-blur-md border border-white/10 shadow-card-glass">
+      <div className="flex items-center justify-center gap-2 mb-3.5 text-xs sm:text-sm font-semibold tracking-wider text-brand-light uppercase">
+        <Clock className="w-4 h-4 text-brand-light animate-spin" style={{ animationDuration: '8s' }} />
         <span>Compte à Rebours Officiel</span>
       </div>
 
       <div className="grid grid-cols-4 gap-2 sm:gap-4">
         {[
-          { label: "Jours", value: isHydrated ? timeLeft.days : "--" },
-          { label: "Heures", value: isHydrated ? formatTwoDigits(timeLeft.hours) : "--" },
-          { label: "Mins", value: isHydrated ? formatTwoDigits(timeLeft.minutes) : "--" },
-          { label: "Secs", value: isHydrated ? formatTwoDigits(timeLeft.seconds) : "--" },
+          { label: "Jours", value: displayDays },
+          { label: "Heures", value: displayHours },
+          { label: "Mins", value: displayMinutes },
+          { label: "Secs", value: displaySeconds },
         ].map((item, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center justify-center p-2.5 sm:p-4 rounded-xl bg-navy-main/80 border border-white/10 shadow-inner group hover:border-gold/40 transition-colors duration-200"
+            className="flex flex-col items-center justify-center p-2.5 sm:p-4 rounded-xl bg-navy-main/90 border border-white/10 shadow-inner group hover:border-gold/50 transition-colors duration-200"
           >
-            <span className="font-data font-bold text-2xl sm:text-4xl text-gold tabular-nums tracking-tight">
+            <span
+              suppressHydrationWarning
+              className="font-data font-extrabold text-2xl sm:text-4xl text-gold tabular-nums tracking-tight"
+            >
               {item.value}
             </span>
-            <span className="text-[10px] sm:text-xs font-medium text-slate-400 uppercase tracking-widest mt-1">
+            <span className="text-[10px] sm:text-xs font-semibold text-slate-300 uppercase tracking-widest mt-1">
               {item.label}
             </span>
           </div>
