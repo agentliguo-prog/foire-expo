@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-nav transition-all duration-200">
+    <header className="w-full glass-nav transition-all duration-200">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Logo officiel Ligue */}
         <a href="#accueil" className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-light/50 rounded-xl p-1">
