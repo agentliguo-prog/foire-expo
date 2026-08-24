@@ -1,80 +1,80 @@
-# GEMINI.md — v0 (phase de cadrage)
+# GEMINI.md — v1 (Foire d'Exposition des Entrepreneurs 2026)
 
-> **État du projet : Jour 0.** Les documents fondateurs n'existent pas encore.
-> Ce fichier est une constitution **provisoire et procédurale**. Il sera remplacé
-> par une v1 complète (avec la stack) dès que PRD, DESIGN et PLAN seront validés.
+> Document constitutionnel du projet. Remplace la v0 suite à la validation du PRD, du DESIGN, du PLAN et du choix de la stack.
 
 ## Nature du projet
 
-Application SaaS (utilisateurs authentifiés, données persistantes, espaces cloisonnés).
-Développement assisté, en français, piloté par documents.
+Landing Page événementielle moderne, responsive et optimisée pour la conversion pour la 2ᵉ Édition de la **Foire d'Exposition des Entrepreneurs** (organisée par la Ligue des Leaders d'Entreprise à Garoua en décembre 2026).
 
-## Documents de référence
+## Stack Technique & Versions
 
-Toute décision durable vit dans un fichier, jamais uniquement dans la conversation.
-
-| Fichier | Contenu | Producteur |
+| Composant | Technologie | Rôle / Justification |
 |---|---|---|
-| `docs/PRD.md` | le quoi (problème, users, stories, tenancy, rôles, données, facturation) | `/cadre` |
-| `docs/DESIGN.md` | la vérité visuelle (tokens, densité, app shell, états) | `/design` |
-| `docs/PLAN.md` | les phases d'implémentation (tranches verticales) | `/planifie` |
-| `docs/SECURITY.md` | invariants + contrôles par type de surface | manuel + `audit-securite-saas` |
-| `docs/ADR/` | une décision architecturale datée par fichier | manuel |
-| `docs/audits/` | rapports d'audit de sécurité | `audit-securite-saas` |
+| **Framework** | Next.js (App Router) | React, Server Actions (envoi d'email sécurisé), SSG/SSR, SEO |
+| **Langage** | TypeScript | Typage strict des formulaires et configurations |
+| **Styling** | Tailwind CSS | Implémentation fidèle des tokens de `docs/DESIGN.md` |
+| **Icônes** | Lucide React | Icônes modernes et épurées |
+| **Formulaires / Email** | Server Actions + Nodemailer/Resend | Traitement sécurisé côté serveur sans secret client |
 
-## Ordre de travail (Jour 0)
+## Arborescence & Conventions de Code
 
-1. `/interroge` → brief
-2. `/cadre` → `docs/PRD.md` — **branche SaaS obligatoire** : tenancy, matrice des rôles, cycle de vie de la donnée, plans et limites
-3. `/design` → `docs/DESIGN.md` + `docs/design-preview.html` — **mode SaaS obligatoire**
-4. `/planifie` → `docs/PLAN.md`
-5. Choix de la stack, puis **régénération de ce fichier en v1**
+```
+d:\DEV\PROJETS\site-ligo-foire\
+├── docs/
+│   ├── PRD.md
+│   ├── DESIGN.md
+│   ├── PLAN.md
+│   ├── SECURITY.md
+│   └── design-preview.html
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── actions/
+│   │       └── register.ts      (Server Action pour envoi email)
+│   ├── components/
+│   │   ├── ui/                  (Boutons, Inputs, Modales...)
+│   │   ├── sections/            (Hero, Stands, Concours, Galerie, FAQ...)
+│   │   └── ModalRegistration.tsx
+│   └── lib/                     (Utilitaires, constantes, validation)
+├── public/                      (Logo Ligue, photos/vidéos 2025)
+└── GEMINI.md
+```
 
-Ces quatre étapes se font dans l'ordre. Chaque skill lit les documents produits en amont.
+## Documents de Référence
 
-## Règles absolues (v0)
+Toute décision durable est consignée dans les documents suivants :
 
-**R1 — Aucun code applicatif avant `docs/PLAN.md`.** Pendant le Jour 0, on n'écrit que
-des documents. Pas de `npm create`, pas de scaffolding, pas de composant « pour montrer ».
+| Fichier | Contenu |
+|---|---|
+| `docs/PRD.md` | Fonctionnalités, User Stories, Critères de succès, Formulaires |
+| `docs/DESIGN.md` | Charte visuelle, typographies, palette Dark Navy, tokens |
+| `docs/PLAN.md` | Phases d'exécution par tranches verticales |
+| `docs/SECURITY.md` | Invariants de sécurité, validation des entrées & contrôles |
 
-**R2 — Aucune technologie n'est décidée.** Ne propose ni framework, ni base de données,
-ni librairie, ni hébergeur, et n'en écris aucun nom dans PRD, DESIGN ou PLAN. Si une
-question de cadrage dépend d'un choix technique, note-la dans les Notes complémentaires
-du PRD et continue.
+## Invariants de Sécurité (Applicables à la Stack)
 
-**R3 — La phase 1 du plan est toujours le socle authentification + tenancy.** Une tranche
-verticale complète : inscription, connexion, création d'une donnée, lecture de cette donnée
-**filtrée par propriétaire ou par espace**. Aucune autre phase ne peut la précéder. Cette
-règle prime sur toute autre considération de découpage.
+- **I1** — Aucun secret (clé API d'envoi d'email) côté client. Les clés vivent uniquement dans les variables d'environnement serveur.
+- **I2** — Traitement des soumissions via Server Actions (`src/app/actions/`), jamais via un endpoint exposé non contrôlé.
+- **I3** — Validation stricte des données du formulaire en entrée (type, longueur, téléphone) avant tout envoi d'email.
+- **I4** — Échappement et assainissement XSS systématiques des textes utilisateur.
+- **I5** — Aucun secret commité dans Git (présence obligatoire de `.env.local` dans `.gitignore`).
 
-**R4 — Chaque phase du plan porte ses contrôles de sécurité.** Au moment de rédiger
-`docs/PLAN.md`, lis `docs/SECURITY.md` et ajoute aux critères d'acceptation de chaque
-phase les contrôles correspondant aux surfaces qu'elle touche. Une phase sans surface
-sensible n'en porte aucun ; ne pas en inventer pour remplir.
+## Workflow Git & Livraisons
 
-**R5 — Jamais de commit sur `main`.** Tout travail passe par `/branche` puis `/livre`.
-Cette règle s'applique dès le Jour 0, y compris pour les documents.
+- **Branches** : Tout travail est réalisé sur des branches dédiées (`feat/...` ou `fix/...`) via le skill `/branche`. Jamais de commit direct sur `main`.
+- **Livraison** : Chaque phase du plan se conclut par le skill `/livre` pour pousser la branche et ouvrir une PR.
 
-**R6 — `docs/DESIGN.md` est la seule source de vérité visuelle.** Le skill `design` la
-produit ; le skill `construis-ui` l'exécute et ne la contredit jamais. Aucun autre skill
-ni aucune inspiration externe ne peut trancher couleurs, fonts, spacing, radius ou motion.
+## Définition d'une « Phase Terminée »
 
-**R7 — Un bug s'investigue avant de se corriger.** Symptôme inattendu → `/investigue`,
-ses 4 phases, dans l'ordre. Jamais de correctif improvisé.
+Une phase du plan est considérée comme terminée uniquement lorsque :
+1. Le code correspondant à la tranche verticale a été implémenté sans régression.
+2. Les critères d'acceptation de la phase définis dans `docs/PLAN.md` sont 100% satisfaits.
+3. Les contrôles de sécurité associés à la phase ont été vérifiés.
+4. L'UI a été testée et validée visuellement sur mobile et desktop selon `docs/DESIGN.md`.
 
-**R8 — Pas de divergence silencieuse.** Si une découverte contredit un document, mets à
-jour le document dans le même commit et consigne la décision dans `docs/ADR/`. Ne jamais
-laisser le code et les documents diverger.
+## Ce qui exige l'accord de l'utilisateur
 
-## Communication
-
-- Français, vocabulaire du produit tel que je l'emploie.
-- Une question à la fois pendant le cadrage, avec ta recommandation justifiée.
-- Si une règle de ce fichier bloque une demande que je te fais, dis-le au lieu de contourner.
-
-## Sortie de la v0
-
-Ce fichier est remplacé dès que PRD + DESIGN + PLAN sont validés et la stack arrêtée.
-La v1 ajoutera : la stack et ses versions, les conventions de code et d'arborescence,
-les invariants de sécurité applicables à cette stack, la définition de « phase terminée »,
-et la liste de ce qui exige mon accord avant action.
+- Modification de la structure des formulaires ou des montants FCFA.
+- Ajout d'une nouvelle dépendance npm majeure.
+- Modification de `docs/PRD.md`, `docs/DESIGN.md` ou `docs/PLAN.md`.
