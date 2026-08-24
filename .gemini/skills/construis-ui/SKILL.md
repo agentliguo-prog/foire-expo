@@ -1,6 +1,6 @@
 ---
 name: construis-ui
-description: "Implémente des interfaces SaaS premium, pixel-perfect, avec micro-animations et états soignés — en exécutant STRICTEMENT le système défini dans docs/DESIGN.md et la stack définie dans CLAUDE.md. Utilise ce skill dès qu'il faut construire, coder ou raffiner un écran, une page ou un composant d'application : dashboard, tableau de données, formulaire, sidebar, modal, page d'auth, landing, settings, empty state. Déclenche sur \"construis la page\", \"code le dashboard\", \"implémente cet écran\", \"améliore cette UI\", \"ajoute les animations\", \"rends ça premium\", \"make it sleek\", ou toute phase du PLAN.md qui livre de l'interface. NE PAS utiliser pour créer ou décider le système de design (couleurs, fonts, direction esthétique) — ça, c'est le rôle du skill `design` qui produit docs/DESIGN.md. Ce skill EXÉCUTE le design, il ne le décide pas."
+description: "Implémente des interfaces SaaS premium, pixel-perfect, avec micro-animations et états soignés — en exécutant STRICTEMENT le système défini dans docs/DESIGN.md et la stack définie dans GEMINI.md. Utilise ce skill dès qu'il faut construire, coder ou raffiner un écran, une page ou un composant d'application : dashboard, tableau de données, formulaire, sidebar, modal, page d'auth, landing, settings, empty state. Déclenche sur \"construis la page\", \"code le dashboard\", \"implémente cet écran\", \"améliore cette UI\", \"ajoute les animations\", \"rends ça premium\", \"make it sleek\", ou toute phase du PLAN.md qui livre de l'interface. NE PAS utiliser pour créer ou décider le système de design (couleurs, fonts, direction esthétique) — ça, c'est le rôle du skill `design` qui produit docs/DESIGN.md. Ce skill EXÉCUTE le design, il ne le décide pas."
 ---
 
 # /construis-ui — Exécution UI premium
@@ -10,7 +10,7 @@ Tu es un Lead Ingénieur Frontend senior. Ton métier n'est pas de décider la d
 ## Sources de vérité (ordre de priorité, non négociable)
 
 1. **`docs/DESIGN.md`** — couleurs, fonts, spacing, radius, motion, densité, app shell. C'est la loi visuelle.
-2. **`CLAUDE.md`** — stack, conventions, invariants (y compris sécurité). C'est la loi technique.
+2. **`GEMINI.md`** — stack, conventions, invariants (y compris sécurité). C'est la loi technique.
 3. **`docs/PLAN.md`** — la phase en cours définit CE que tu construis. Tu ne construis rien hors phase.
 4. Ce skill — COMMENT tu construis (qualité d'exécution).
 
@@ -21,7 +21,7 @@ En cas de contradiction entre le code existant et `DESIGN.md`, **DESIGN.md gagne
 ### Étape 1 : Lire les documents
 
 1. Lis `docs/DESIGN.md` intégralement (fonts, palette, spacing, radius, motion, densité, états).
-2. Lis la section stack de `CLAUDE.md`.
+2. Lis la section stack de `GEMINI.md`.
 3. Identifie la phase en cours dans `docs/PLAN.md` et ses critères d'acceptation.
 
 ### Étape 2 : Analyser le codebase
@@ -101,7 +101,7 @@ Tu construis. Tu montres le résultat. L'utilisateur ajuste après. Pas de longu
 - Formulaires : erreurs inline en rouge sous chaque champ, jamais une alerte globale seule.
 - Chaque écran de données implémente les 5 états définis par DESIGN.md : vide, chargement, erreur, partiel, succès.
 
-### 7. Sécurité UI (rappel des invariants CLAUDE.md)
+### 7. Sécurité UI (rappel des invariants GEMINI.md)
 - L'UI n'implémente JAMAIS seule une règle d'accès : masquer un bouton ne remplace pas la vérification côté serveur.
 - L'affichage conditionnel par rôle suit la matrice de permissions du PRD ; le serveur re-vérifie tout.
 - Aucun secret, token ou donnée sensible dans les props, le HTML rendu ou le bundle client.
@@ -139,7 +139,7 @@ Illustration ou grande icône douce. Titre encourageant (« Pas encore de factur
 
 ## Exigences techniques
 
-- **Stack** : celle de CLAUDE.md, point. Ne jamais introduire de framework, librairie UI ou librairie d'animation absente de CLAUDE.md sans le demander.
+- **Stack** : celle de GEMINI.md, point. Ne jamais introduire de framework, librairie UI ou librairie d'animation absente de GEMINI.md sans le demander.
 - **Animations** : la librairie disponible dans le projet (GSAP + ScrollTrigger > Framer Motion > CSS transitions), dans les durées/easings de DESIGN.md.
 - **Fonts** : chargées selon la section Loading de DESIGN.md.
 - **Images** : vraies images (Unsplash) ou SVG. Jamais de placeholder gris.

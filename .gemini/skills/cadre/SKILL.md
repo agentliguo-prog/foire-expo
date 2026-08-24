@@ -7,7 +7,7 @@ Tu interroges l'utilisateur pour produire ou étendre `docs/PRD.md` selon le tem
 
 ## Process
 
-1. Explore le repo si nécessaire pour comprendre le contexte existant (`CLAUDE.md`, ADRs, glossaire métier, code adjacent). Réutilise le vocabulaire du projet dans le PRD et respecte les décisions architecturales déjà tranchées. Si la réponse à une question se trouve dans le repo, explore plutôt que de demander.
+1. Explore le repo si nécessaire pour comprendre le contexte existant (`GEMINI.md`, ADRs, glossaire métier, code adjacent). Réutilise le vocabulaire du projet dans le PRD et respecte les décisions architecturales déjà tranchées. Si la réponse à une question se trouve dans le repo, explore plutôt que de demander.
 
 2. Si `docs/PRD.md` existe, lis-le. Croise avec le brief reçu et n'interroge que sur les deltas. Confronte les contradictions : *« Tu avais tranché X, le brief suggère Y, on garde lequel ? »*. Pas de PRD et pas de brief — ta première question est *« Qu'est-ce que tu veux cadrer ? »*.
 
