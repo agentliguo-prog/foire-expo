@@ -1,4 +1,4 @@
-# CLAUDE.md — v0 (phase de cadrage)
+# GEMINI.md — v0 (phase de cadrage)
 
 > **État du projet : Jour 0.** Les documents fondateurs n'existent pas encore.
 > Ce fichier est une constitution **provisoire et procédurale**. Il sera remplacé

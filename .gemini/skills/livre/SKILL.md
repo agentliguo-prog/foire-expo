@@ -27,7 +27,7 @@ Commit tous les changements, synchronise avec main distant, push, et crée une P
 - Ajoute au staging les fichiers modifiés/nouveaux pertinents (nomme les fichiers précisément, pas `git add -A`)
 - N'ajoute PAS au staging les fichiers contenant des secrets (`.env`, identifiants, etc.)
 - **Si `$ARGUMENTS` est fourni**, utilise-le comme message de commit
-- **Si aucun argument**, rédige un message de commit selon les conventions de CLAUDE.md :
+- **Si aucun argument**, rédige un message de commit selon les conventions de GEMINI.md :
   - Utilise un préfixe de type : `feat:` (nouvelle fonctionnalité) ou `fix:` (correction de bug)
   - Mets l'accent sur le « pourquoi » plutôt que le « quoi »
   - Termine par `Co-Authored-By: Claude`

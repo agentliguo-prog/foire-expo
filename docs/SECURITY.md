@@ -5,20 +5,20 @@
 > 2. **Le skill `audit-securite-saas` le complète** après chaque audit (invariants renforcés, faux positifs connus, dettes acceptées).
 >
 > Version v0 : la stack n'est pas encore choisie, donc rien ici n'est spécifique à un outil.
-> Après le choix de la stack, ajouter la section « Invariants de la stack » et les faire remonter dans CLAUDE.md v1.
+> Après le choix de la stack, ajouter la section « Invariants de la stack » et les faire remonter dans GEMINI.md v1.
 
 ## Les trois étages
 
 | Étage | Où ça vit | Quand |
 |---|---|---|
-| **1. Invariants** | `CLAUDE.md` (v1) | permanent, à chaque message |
+| **1. Invariants** | `GEMINI.md` (v1) | permanent, à chaque message |
 | **2. Contrôles par phase** | critères d'acceptation de `docs/PLAN.md` | à la fin de chaque phase |
 | **3. Audit complet** | skill `audit-securite-saas` → `docs/audits/` | après la phase 1, puis avant la mise en production |
 
 L'étage 1 est préventif et gratuit. L'étage 2 attrape les régressions au fil de l'eau.
 L'étage 3 est la vérification indépendante — il ne remplace jamais les deux premiers.
 
-## Invariants (à reporter dans CLAUDE.md v1)
+## Invariants (à reporter dans GEMINI.md v1)
 
 - **I1** — Aucun secret côté client. Aucune clé privilégiée, aucun token de service, aucune variable sensible dans une variable d'environnement exposée au navigateur.
 - **I2** — L'identité de l'utilisateur ne vient jamais du client. Elle est lue depuis la session côté serveur, jamais depuis un identifiant reçu dans la requête.

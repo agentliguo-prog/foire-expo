@@ -154,12 +154,12 @@ Sur un projet vibe-codé, ces quatre-là expliquent à elles seules la majorité
 
 ## Intégration au projet (si `docs/` existe)
 
-Dans un projet piloté par documents (`CLAUDE.md`, `docs/PRD.md`, `docs/PLAN.md`, `docs/SECURITY.md`), l'audit ne s'arrête pas au rapport rendu en chat :
+Dans un projet piloté par documents (`GEMINI.md`, `docs/PRD.md`, `docs/PLAN.md`, `docs/SECURITY.md`), l'audit ne s'arrête pas au rapport rendu en chat :
 
 1. **Cadrer avec le PRD.** Lire la section « Décisions d'implémentation » de `docs/PRD.md` : le modèle de tenancy et la matrice des rôles disent ce que le test des deux comptes doit démontrer. Sans eux, l'audit ne peut pas trancher les contrôles 6 et 7.
 2. **Écrire le rapport dans `docs/audits/AAAA-MM-JJ-<motif>.md`** en plus de le présenter en chat.
 3. **Reverser les constats.** Chaque 🔴 et 🟠 devient une phase `fix/` proposée pour `docs/PLAN.md` (le skill `planifie` a un mode extension). Chaque ⚪️ NON VÉRIFIÉ va dans la section « Dettes acceptées » de `docs/SECURITY.md`, avec ce qu'il faudrait pour trancher et une échéance.
-4. **Renforcer les invariants.** Si une faille trouvée aurait pu être évitée par une règle permanente, proposer d'ajouter cet invariant à `docs/SECURITY.md` et de le reporter dans `CLAUDE.md`. Un audit qui ne fait pas remonter de règle laisse la même faille revenir à la phase suivante.
+4. **Renforcer les invariants.** Si une faille trouvée aurait pu être évitée par une règle permanente, proposer d'ajouter cet invariant à `docs/SECURITY.md` et de le reporter dans `GEMINI.md`. Un audit qui ne fait pas remonter de règle laisse la même faille revenir à la phase suivante.
 
 Deux moments d'audit complet sont prévus par la méthode : **juste après la phase auth + tenancy** (l'architecture d'isolation est encore peu coûteuse à corriger) et **avant la première mise en ligne réelle**. Entre les deux, la sécurité vit dans les critères d'acceptation des phases, pas dans ce skill.
 
