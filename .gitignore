@@ -3,8 +3,11 @@
 .env.local
 *.env
 
-# Dependencies
+# Dependencies & Build
 node_modules/
+.next/
+out/
+build/
 
 # Disposable design preview artifact
 docs/design-preview.html
