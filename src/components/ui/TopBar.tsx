@@ -2,7 +2,11 @@ import React from "react";
 import { Sparkles, MapPin } from "lucide-react";
 import { EVENT_DETAILS } from "@/lib/constants";
 
-export const TopBar: React.FC = () => {
+interface TopBarProps {
+  onOpenModal?: (type: "exposant" | "concours", optionId?: string) => void;
+}
+
+export const TopBar: React.FC<TopBarProps> = ({ onOpenModal }) => {
   return (
     <div className="bg-gradient-to-r from-navy-card via-brand-blue/20 to-navy-card border-b border-white/10 text-xs sm:text-sm py-2 px-4 text-slate-300 relative z-50">
       <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-3">
@@ -20,13 +24,13 @@ export const TopBar: React.FC = () => {
           </span>
         </div>
 
-        <a
-          href="#stands"
-          className="hidden sm:flex items-center gap-1 text-xs font-semibold text-brand-light hover:text-white transition-colors duration-150 shrink-0 group"
+        <button
+          onClick={() => onOpenModal?.("exposant", "stand-35k")}
+          className="hidden sm:flex items-center gap-1 text-xs font-semibold text-brand-light hover:text-white transition-colors duration-150 shrink-0 group focus:outline-none"
         >
           <span>Réserver un stand</span>
           <span className="group-hover:translate-x-0.5 transition-transform duration-150">→</span>
-        </a>
+        </button>
       </div>
     </div>
   );

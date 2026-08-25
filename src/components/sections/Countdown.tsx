@@ -65,13 +65,13 @@ export const Countdown: React.FC = () => {
   const displaySeconds = mounted ? formatTwoDigits(timeLeft.seconds) : "00";
 
   return (
-    <div className="w-full max-w-xl mx-auto my-8 p-4 sm:p-5 rounded-2xl bg-navy-card/80 backdrop-blur-md border border-white/10 shadow-card-glass">
-      <div className="flex items-center justify-center gap-2 mb-3.5 text-xs sm:text-sm font-semibold tracking-wider text-brand-light uppercase">
-        <Clock className="w-4 h-4 text-brand-light animate-spin" style={{ animationDuration: '8s' }} />
+    <div className="w-full max-w-xl mx-auto my-6 sm:my-8 p-3 sm:p-5 rounded-2xl bg-navy-card/80 backdrop-blur-md border border-white/10 shadow-card-glass box-border overflow-hidden">
+      <div className="flex items-center justify-center gap-1.5 mb-3 text-[11px] sm:text-sm font-semibold tracking-wider text-brand-light uppercase">
+        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-light animate-spin" style={{ animationDuration: '8s' }} />
         <span>Compte à Rebours Officiel</span>
       </div>
 
-      <div className="grid grid-cols-4 gap-2 sm:gap-4">
+      <div className="grid grid-cols-4 gap-1.5 sm:gap-4">
         {[
           { label: "Jours", value: displayDays },
           { label: "Heures", value: displayHours },
@@ -80,15 +80,15 @@ export const Countdown: React.FC = () => {
         ].map((item, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center justify-center p-2.5 sm:p-4 rounded-xl bg-navy-main/90 border border-white/10 shadow-inner group hover:border-gold/50 transition-colors duration-200"
+            className="flex flex-col items-center justify-center p-2 sm:p-4 rounded-xl bg-navy-main/90 border border-white/10 shadow-inner group hover:border-gold/50 transition-colors duration-200"
           >
             <span
               suppressHydrationWarning
-              className="font-data font-extrabold text-2xl sm:text-4xl text-gold tabular-nums tracking-tight"
+              className="font-data font-extrabold text-lg sm:text-4xl text-gold tabular-nums tracking-tight"
             >
               {item.value}
             </span>
-            <span className="text-[10px] sm:text-xs font-semibold text-slate-300 uppercase tracking-widest mt-1">
+            <span className="text-[9px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider mt-0.5 sm:mt-1">
               {item.label}
             </span>
           </div>

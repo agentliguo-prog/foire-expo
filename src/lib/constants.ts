@@ -14,6 +14,22 @@ export const EVENT_DETAILS = {
   },
 };
 
+export const PAYMENT_DETAILS = {
+  mtn: {
+    name: "MTN Mobile Money",
+    number: "+237 6 70 00 00 00",
+    accountName: "Ligue des Leaders d'Entreprise",
+    code: "*126#",
+  },
+  orange: {
+    name: "Orange Money",
+    number: "+237 6 90 00 00 00",
+    accountName: "Ligue des Leaders d'Entreprise",
+    code: "#150#",
+  },
+  instructions: "Veuillez effectuer votre dépôt Mobile Money ou Orange Money à l'un des numéros ci-dessus en indiquant votre Nom / Nom d'Entreprise en motif ou référence de paiement. Un agent de la Ligue vous contactera dans les 24h pour valider définitivement votre réservation.",
+};
+
 export const NAV_LINKS = [
   { name: "Accueil", href: "#accueil" },
   { name: "Stands", href: "#stands" },
