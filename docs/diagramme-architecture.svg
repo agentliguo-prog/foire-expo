@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%" style="background: #0B1325; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="100%" stop-color="#00D2FF" />
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800" />
+      <stop offset="100%" stop-color="#FFA000" />
+    </linearGradient>
+    <linearGradient id="emeraldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131E36" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#0066FF" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Title Banner -->
+  <text x="600" y="50" text-anchor="middle" fill="#FFFFFF" font-size="24" font-weight="800" letter-spacing="1">ARCHITECTURE & TRANSMISSION DU PROJET</text>
+  <text x="600" y="78" text-anchor="middle" fill="#00D2FF" font-size="14" font-weight="600">Foire d'Exposition des Entrepreneurs 2026 (Garoua)</text>
+
+  <!-- Central Box: Google Account (Primary Pillar) -->
+  <g filter="url(#shadow)">
+    <rect x="420" y="120" width="360" height="150" rx="20" fill="url(#cardBg)" stroke="#0066FF" stroke-width="2" />
+    <rect x="440" y="140" width="48" height="48" rx="12" fill="url(#blueGlow)" />
+    <text x="464" y="170" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="bold">G</text>
+    
+    <text x="504" y="160" fill="#FFFFFF" font-size="18" font-weight="bold">1. Compte Google Maître</text>
+    <text x="504" y="180" fill="#94A3B8" font-size="12">Identité centrale & Propriétaire ultime</text>
+    
+    <text x="440" y="220" fill="#CBD5E1" font-size="12">• Clé de voûte de tous les services</text>
+    <text x="440" y="240" fill="#FFB800" font-size="12" font-weight="600">⚠️ Modifier le N° de téléphone de récupération</text>
+  </g>
+
+  <!-- Connector Lines from Google to GitHub & Netlify -->
+  <path d="M 500 270 L 260 360" stroke="#00D2FF" stroke-width="3" stroke-dasharray="6,6" fill="none" />
+  <path d="M 700 270 L 940 360" stroke="#00D2FF" stroke-width="3" stroke-dasharray="6,6" fill="none" />
+
+  <!-- Left Box: GitHub (Code Source) -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="360" width="360" height="160" rx="20" fill="url(#cardBg)" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+    <rect x="100" y="380" width="48" height="48" rx="12" fill="#333333" />
+    <path d="M 124 392 C 115.7 392 109 398.7 109 407 C 109 413.6 113.3 419.2 119.3 421.2 C 120.2 421.4 120.5 420.8 120.5 420.3 L 120.5 417.1 C 116.3 418 115.4 415.1 115.4 415.1 C 114.7 413.3 113.7 412.8 113.7 412.8 C 112.3 411.9 113.8 411.9 113.8 411.9 C 115.3 412 116.1 413.4 116.1 413.4 C 117.5 415.8 119.7 415.1 120.6 414.7 C 120.7 413.7 121.1 413 121.6 412.6 C 118.3 412.2 114.8 410.9 114.8 405.2 C 114.8 403.6 115.4 402.2 116.4 401.2 C 116.2 400.8 115.7 399.3 116.5 397.3 C 116.5 397.3 117.7 396.9 120.5 398.8 C 121.7 398.5 122.9 398.3 124.2 398.3 C 125.4 398.3 126.7 398.5 127.9 398.8 C 130.6 396.9 131.9 397.3 131.9 397.3 C 132.7 399.3 132.2 400.8 132 401.2 C 133 402.2 133.6 403.6 133.6 405.2 C 133.6 410.9 130.1 412.2 126.7 412.6 C 127.3 413.1 127.8 414.1 127.8 415.6 L 127.8 420.3 C 127.8 420.8 128.1 421.4 129 421.2 C 135 419.2 139.3 413.6 139.3 407 C 139.3 398.7 132.6 392 124.2 392 Z" fill="#FFFFFF" />
+
+    <text x="164" y="400" fill="#FFFFFF" font-size="18" font-weight="bold">2. Dépôt GitHub</text>
+    <text x="164" y="420" fill="#00D2FF" font-size="12">agentliguo-prog/foire-expo</text>
+
+    <text x="100" y="460" fill="#CBD5E1" font-size="12">• Code source complet Next.js 14</text>
+    <text x="100" y="480" fill="#CBD5E1" font-size="12">• Historique des commits &amp; releases</text>
+    <text x="100" y="500" fill="#94A3B8" font-size="11">Connexion directe via Google Account</text>
+  </g>
+
+  <!-- Right Box: Netlify (Hébergeur & Moteur Email) -->
+  <g filter="url(#shadow)">
+    <rect x="760" y="360" width="360" height="160" rx="20" fill="url(#cardBg)" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+    <rect x="780" y="380" width="48" height="48" rx="12" fill="#00C7B7" />
+    <text x="804" y="412" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="bold">N</text>
+
+    <text x="844" y="400" fill="#FFFFFF" font-size="18" font-weight="bold">3. Hébergement Netlify</text>
+    <text x="844" y="420" fill="#00C7B7" font-size="12">Déploiement Continu (CI/CD)</text>
+
+    <text x="780" y="460" fill="#CBD5E1" font-size="12">• Déploiement auto depuis GitHub main</text>
+    <text x="780" y="480" fill="#CBD5E1" font-size="12">• Variables : RESEND_API_KEY &amp; NOTIFICATION</text>
+    <text x="780" y="500" fill="#94A3B8" font-size="11">Connexion automatique via Google/GitHub</text>
+  </g>
+
+  <!-- Connector from GitHub to Netlify -->
+  <path d="M 440 440 L 760 440" stroke="url(#blueGlow)" stroke-width="4" marker-end="url(#arrow)" />
+  <text x="600" y="430" text-anchor="middle" fill="#00D2FF" font-size="12" font-weight="bold">Auto-Deploy à chaque commit</text>
+
+  <!-- Bottom Box: Site Public & Notifications Emails -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="550" width="480" height="90" rx="16" fill="url(#cardBg)" stroke="url(#goldGlow)" stroke-width="2" />
+    <text x="600" y="585" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">🌐 Site Web En Ligne &amp; Réception des Formulaires</text>
+    <text x="600" y="610" text-anchor="middle" fill="#FFB800" font-size="13">Emails récapitulatifs instantanés envoyés sur votre boîte mail principale</text>
+  </g>
+</svg>
