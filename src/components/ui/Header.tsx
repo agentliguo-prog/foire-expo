@@ -48,18 +48,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         </nav>
 
         {/* Bouton CTA & Hamburger */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <button
             onClick={() => onOpenModal?.("exposant", "stand-35k")}
-            className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-blue-gradient shadow-blue-glow hover-lift focus:outline-none focus:ring-2 focus:ring-brand-light"
+            className="inline-flex items-center justify-center gap-1 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-blue-gradient shadow-blue-glow hover-lift focus:outline-none focus:ring-2 focus:ring-brand-light transition-all shrink-0"
           >
-            <span>Réserver un stand</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Réserver <span className="hidden xs:inline">un stand</span></span>
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 sm:p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none"
+            className="md:hidden p-1.5 sm:p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none shrink-0"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}

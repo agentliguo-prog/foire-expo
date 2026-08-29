@@ -79,10 +79,10 @@ Phase 2
 La section de preuve sociale "Retour en images 2025" (galerie responsive de photos et vidéos optimisées de la 1ère édition), la section FAQ & Informations pratiques (confirmation du lieu au Parc Bois de Garoua), les boutons de redirection vers les pages TikTok et Facebook de la Ligue des Leaders d'Entreprise, ainsi qu'un audit de sécurité et de performance pré-déploiement.
 
 ### Critères d'acceptation
-- [ ] Galerie photo/vidéo fluide avec lazy-loading des médias de l'édition 2025.
-- [ ] Section FAQ répondant aux questions courantes sur l'organisation à Garoua.
-- [ ] Liens vers les comptes TikTok et Facebook officiels de la Ligue opérationnels.
-- [ ] **Contrôle de sécurité (Surface H)** : Aucune variable d'environnement sensible manquante, build de production propre et optimisé.
+- [x] Galerie photo/vidéo fluide avec lazy-loading des médias de l'édition 2025.
+- [x] Section FAQ répondant aux questions courantes sur l'organisation à Garoua.
+- [x] Liens vers les comptes TikTok et Facebook officiels de la Ligue opérationnels.
+- [x] **Contrôle de sécurité (Surface H)** : Aucune variable d'environnement sensible manquante, build de production propre et optimisé.
 
 ## Bloquée par
 Phase 3

@@ -521,66 +521,34 @@ export const ModalRegistration: React.FC<ModalRegistrationProps> = ({
               {PAYMENT_DETAILS.instructions}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-              {/* Box MTN MoMo */}
-              <div className="p-3 rounded-xl bg-navy-card border border-white/10 flex flex-col justify-between gap-1.5">
-                <div>
-                  <span className="text-[10px] font-bold text-amber-400 block uppercase">
-                    {PAYMENT_DETAILS.mtn.name}
-                  </span>
-                  <span className="font-data font-bold text-sm sm:text-base text-white tracking-tight whitespace-nowrap block">
-                    {PAYMENT_DETAILS.mtn.number}
-                  </span>
-                  <span className="text-[10px] text-slate-400 block mt-0.5 truncate">
-                    Compte : {PAYMENT_DETAILS.mtn.accountName}
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleCopyNumber(PAYMENT_DETAILS.mtn.number)}
-                  className="w-full py-1.5 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white flex items-center justify-center gap-1 transition-colors mt-1"
-                >
-                  {copiedNumber === PAYMENT_DETAILS.mtn.number ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-semantic-success" />
-                      <span className="text-semantic-success text-[11px]">Numéro Copié !</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span className="text-[11px]">Copier le numéro</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
+            <div className="pt-1">
               {/* Box Orange Money */}
-              <div className="p-3 rounded-xl bg-navy-card border border-white/10 flex flex-col justify-between gap-1.5">
+              <div className="p-3.5 rounded-xl bg-navy-card border border-orange-500/30 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div>
-                  <span className="text-[10px] font-bold text-orange-400 block uppercase">
-                    {PAYMENT_DETAILS.orange.name}
+                  <span className="text-[11px] font-bold text-orange-400 block uppercase tracking-wider">
+                    {PAYMENT_DETAILS.orange.name} ({PAYMENT_DETAILS.orange.code})
                   </span>
-                  <span className="font-data font-bold text-sm sm:text-base text-white tracking-tight whitespace-nowrap block">
+                  <span className="font-data font-extrabold text-base sm:text-lg text-white tracking-tight block">
                     {PAYMENT_DETAILS.orange.number}
                   </span>
-                  <span className="text-[10px] text-slate-400 block mt-0.5 truncate">
-                    Compte : {PAYMENT_DETAILS.orange.accountName}
+                  <span className="text-[11px] text-slate-300 block mt-0.5">
+                    Titulaire : <strong className="text-white">{PAYMENT_DETAILS.orange.accountName}</strong>
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleCopyNumber(PAYMENT_DETAILS.orange.number)}
-                  className="w-full py-1.5 px-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white flex items-center justify-center gap-1 transition-colors mt-1"
+                  className="w-full sm:w-auto py-2 px-4 rounded-xl bg-orange-500/20 hover:bg-orange-500 text-orange-300 hover:text-white border border-orange-500/40 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all shadow-sm shrink-0"
                 >
                   {copiedNumber === PAYMENT_DETAILS.orange.number ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-semantic-success" />
-                      <span className="text-semantic-success text-[11px]">Numéro Copié !</span>
+                      <Check className="w-4 h-4 text-semantic-success" />
+                      <span className="text-semantic-success text-xs font-bold">Copié !</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span className="text-[11px]">Copier le numéro</span>
+                      <Copy className="w-4 h-4" />
+                      <span>Copier le numéro</span>
                     </>
                   )}
                 </button>
