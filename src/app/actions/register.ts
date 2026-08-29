@@ -3,8 +3,6 @@
 import {
   validateExposantForm,
   validateConcoursForm,
-  ExposantFormData,
-  ConcoursFormData,
 } from "@/lib/validation";
 import { STANDS_DATA, CONCOURS_DATA, EVENT_DETAILS } from "@/lib/constants";
 
@@ -35,24 +33,22 @@ export async function submitExposantRegistration(
 
     const selectedStand = STANDS_DATA.find((s) => s.id === sanitizedData.standPackageId) || STANDS_DATA[1];
 
-    // Traitement de l'envoi d'email serveur (Nodemailer / Resend ou notification console)
+    const resultData = {
+      ...sanitizedData,
+      standName: selectedStand.name,
+      standPrice: selectedStand.priceFormatted,
+    };
+
+    // Traitement de l'envoi d'email serveur
     await sendNotificationEmail({
       type: "Exposant",
-      details: {
-        ...sanitizedData,
-        standName: selectedStand.name,
-        standPrice: selectedStand.priceFormatted,
-      },
+      details: resultData,
     });
 
     return {
       success: true,
       message: "Votre pré-inscription de stand a été enregistrée avec succès !",
-      data: {
-        ...sanitizedData,
-        standName: selectedStand.name,
-        standPrice: selectedStand.priceFormatted,
-      },
+      data: resultData,
     };
   } catch (error) {
     console.error("[Server Action Error - submitExposantRegistration]:", error);
@@ -83,24 +79,22 @@ export async function submitConcoursRegistration(
 
     const selectedConcours = CONCOURS_DATA.find((c) => c.id === sanitizedData.concoursId) || CONCOURS_DATA[0];
 
+    const resultData = {
+      ...sanitizedData,
+      concoursTitle: selectedConcours.title,
+      concoursPrice: selectedConcours.priceFormatted,
+    };
+
     // Traitement de l'envoi d'email serveur
     await sendNotificationEmail({
       type: "Concours",
-      details: {
-        ...sanitizedData,
-        concoursTitle: selectedConcours.title,
-        concoursPrice: selectedConcours.priceFormatted,
-      },
+      details: resultData,
     });
 
     return {
       success: true,
       message: "Votre candidature au concours a été enregistrée avec succès !",
-      data: {
-        ...sanitizedData,
-        concoursTitle: selectedConcours.title,
-        concoursPrice: selectedConcours.priceFormatted,
-      },
+      data: resultData,
     };
   } catch (error) {
     console.error("[Server Action Error - submitConcoursRegistration]:", error);
@@ -119,6 +113,7 @@ async function sendNotificationEmail(payload: {
   details: Record<string, any>;
 }) {
   const notificationRecipient = process.env.NOTIFICATION_EMAIL || "ligue.entrepreneurs.garoua@gmail.com";
+  const sanitizedPhone = (payload.details.phone || "").replace(/[^0-9]/g, "");
 
   console.log(`\n======================================================`);
   console.log(`[NOUVELLE INSCRIPTION - ${payload.type.toUpperCase()}] ${EVENT_DETAILS.title}`);
@@ -126,9 +121,96 @@ async function sendNotificationEmail(payload: {
   console.log(`Détails de la soumission :`, JSON.stringify(payload.details, null, 2));
   console.log(`======================================================\n`);
 
-  // Si des clés SMTP ou Resend sont configurées dans .env.local, l'envoi effectif est déclenché
+  const htmlBody = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+          body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0b1325; color: #ffffff; margin: 0; padding: 20px; }
+          .card { max-width: 600px; margin: 0 auto; background-color: #131e36; border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+          .header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+          .badge { display: inline-block; padding: 6px 14px; border-radius: 20px; background-color: #0066FF; color: #ffffff; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+          .title { color: #ffffff; font-size: 20px; font-weight: 800; margin-top: 12px; margin-bottom: 4px; }
+          .subtitle { color: #00D2FF; font-size: 13px; margin: 0; }
+          .content-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+          .content-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+          .label { color: #94A3B8; font-weight: 600; width: 40%; }
+          .value { color: #ffffff; font-weight: 700; width: 60%; }
+          .btn-wa { display: inline-block; margin-top: 24px; padding: 12px 24px; background-color: #10b981; color: #ffffff; font-weight: bold; text-decoration: none; border-radius: 12px; text-align: center; }
+          .footer { margin-top: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 16px; }
+        </style>
+      </head>
+      <body>
+        <div class="card">
+          <div class="header">
+            <span class="badge">Nouvelle Inscription ${payload.type}</span>
+            <h1 class="title">${EVENT_DETAILS.title}</h1>
+            <p class="subtitle">${EVENT_DETAILS.organizer} — ${EVENT_DETAILS.location}</p>
+          </div>
+          
+          <table class="content-table">
+            <tr>
+              <td class="label">Nom Complet :</td>
+              <td class="value">${payload.details.fullName}</td>
+            </tr>
+            <tr>
+              <td class="label">Téléphone :</td>
+              <td class="value">${payload.details.phone}</td>
+            </tr>
+            <tr>
+              <td class="label">Entreprise / Atelier :</td>
+              <td class="value">${payload.details.companyName}</td>
+            </tr>
+            ${
+              payload.type === "Exposant"
+                ? `
+                <tr>
+                  <td class="label">Stand Sélectionné :</td>
+                  <td class="value" style="color: #00D2FF;">${payload.details.standName} (${payload.details.standPrice} FCFA)</td>
+                </tr>
+                <tr>
+                  <td class="label">Secteur / Activité :</td>
+                  <td class="value">${payload.details.activity}</td>
+                </tr>
+                <tr>
+                  <td class="label">Description :</td>
+                  <td class="value">${payload.details.description}</td>
+                </tr>
+              `
+                : `
+                <tr>
+                  <td class="label">Concours Sélectionné :</td>
+                  <td class="value" style="color: #FFB800;">${payload.details.concoursTitle} (${payload.details.concoursPrice} FCFA)</td>
+                </tr>
+                <tr>
+                  <td class="label">Expérience :</td>
+                  <td class="value">${payload.details.yearsExperience}</td>
+                </tr>
+              `
+            }
+          </table>
+
+          ${
+            sanitizedPhone
+              ? `<div style="text-align: center;">
+                  <a href="https://wa.me/${sanitizedPhone}" class="btn-wa">Contacter le souscripteur sur WhatsApp</a>
+                </div>`
+              : ""
+          }
+
+          <div class="footer">
+            <p>Notification automatique transmise par la plateforme web de la ${EVENT_DETAILS.organizer}.</p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+
+  // 1. Envoi via Resend API si disponible
   if (process.env.RESEND_API_KEY) {
     try {
+      const resendSender = process.env.RESEND_SENDER || "Foire Garoua <onboarding@resend.dev>";
       const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -136,33 +218,37 @@ async function sendNotificationEmail(payload: {
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: "Foire Garoua <noreply@foire-entrepreneurs-garoua.cm>",
+          from: resendSender,
           to: [notificationRecipient],
-          subject: `[Foire 2026] Nouvelle inscription ${payload.type} - ${payload.details.fullName}`,
-          html: `
-            <h2>Nouvelle inscription ${payload.type} - Foire Garoua 2026</h2>
-            <p><strong>Nom complet :</strong> ${payload.details.fullName}</p>
-            <p><strong>Téléphone :</strong> ${payload.details.phone}</p>
-            <p><strong>Entreprise / Marque :</strong> ${payload.details.companyName}</p>
-            ${
-              payload.type === "Exposant"
-                ? `
-                <p><strong>Stand choisi :</strong> ${payload.details.standName} (${payload.details.standPrice} FCFA)</p>
-                <p><strong>Secteur d'activité :</strong> ${payload.details.activity}</p>
-                <p><strong>Description :</strong> ${payload.details.description}</p>
-              `
-                : `
-                <p><strong>Concours choisi :</strong> ${payload.details.concoursTitle} (${payload.details.concoursPrice} FCFA)</p>
-                <p><strong>Années d'expérience :</strong> ${payload.details.yearsExperience}</p>
-              `
-            }
-          `,
+          subject: `[Foire Garoua 2026] Nouvelle Inscription ${payload.type} : ${payload.details.fullName} (${payload.details.companyName})`,
+          html: htmlBody,
         }),
       });
+
       const data = await response.json();
-      console.log("[Resend Email Result]:", data);
+      console.log("[Resend API Email Response]:", data);
     } catch (resendErr) {
       console.error("[Resend API Error]:", resendErr);
+    }
+  }
+
+  // 2. Envoi via Webhook générique / Formspree / Webhook Netlify (Optionnel)
+  if (process.env.WEBHOOK_EMAIL_URL) {
+    try {
+      await fetch(process.env.WEBHOOK_EMAIL_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          recipient: notificationRecipient,
+          subject: `[Foire Garoua 2026] Inscription ${payload.type} - ${payload.details.fullName}`,
+          type: payload.type,
+          data: payload.details,
+          html: htmlBody,
+        }),
+      });
+      console.log("[Webhook Email Notification Sent]");
+    } catch (wbErr) {
+      console.error("[Webhook Email Error]:", wbErr);
     }
   }
 }
