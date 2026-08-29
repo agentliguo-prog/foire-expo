@@ -4,8 +4,8 @@ export const EVENT_DETAILS = {
   organizer: "Ligue des Leaders d'Entreprise",
   location: "Parc Bois, Garoua",
   city: "Garoua, Nord-Cameroun",
-  dateLabel: "Décembre 2026",
-  targetDateISO: "2026-12-01T09:00:00+01:00",
+  dateLabel: "18 Décembre 2026",
+  targetDateISO: "2026-12-18T09:00:00+01:00",
   whatsappNumber: "+237699997583",
   whatsappMessage: encodeURIComponent("Bonjour ! Je souhaite obtenir des informations sur la Foire d'Exposition des Entrepreneurs 2026 à Garoua."),
   socialLinks: {
@@ -377,7 +377,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "faq-1",
     question: "Où et quand se déroulera la Foire d'Exposition des Entrepreneurs 2026 ?",
-    answer: "La 2ᵉ Édition aura lieu en Décembre 2026 sur le site prestigieux du Parc Bois de Garoua, dans la région du Nord-Cameroun. Les horaires d'ouverture au public s'étendent de 08h00 à 18h00 chaque jour.",
+    answer: "La 2ᵉ Édition aura lieu le 18 Décembre 2026 sur le site prestigieux du Parc Bois de Garoua, dans la région du Nord-Cameroun. Les horaires d'ouverture au public s'étendent de 08h00 à 18h00 chaque jour.",
     category: "Général & Lieu",
   },
   {
