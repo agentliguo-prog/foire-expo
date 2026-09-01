@@ -16,8 +16,8 @@ export const EVENT_DETAILS = {
 export const PAYMENT_DETAILS = {
   orange: {
     name: "Orange Money",
-    number: "+237 6 98 21 35 83",
-    accountName: "Ligue des Leaders d'Entreprise",
+    number: "+237 6 97 19 38 57",
+    accountName: "ROUKAYATOU MOUSKORO",
     code: "#150#",
   },
   instructions: "Veuillez effectuer votre dépôt Orange Money au numéro ci-dessus en indiquant votre Nom / Nom d'Entreprise en motif ou référence de paiement. Un agent de la Ligue vous contactera dans les 24h pour valider définitivement votre réservation.",
@@ -401,13 +401,13 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "faq-5",
     question: "Quels sont les moyens de paiement acceptés pour valider ma souscription ?",
-    answer: "Le règlement s'effectue facilement via Orange Money (#150#) au numéro officiel +237 6 98 21 35 83 de la Ligue des Leaders d'Entreprise. Pensez à indiquer votre nom ou nom d'entreprise comme référence de paiement.",
+    answer: "Le règlement s'effectue facilement via Orange Money (#150#) au numéro officiel +237 6 97 19 38 57 (Titulaire : ROUKAYATOU MOUSKORO). Pensez à indiquer votre nom ou nom d'entreprise comme référence de paiement.",
     category: "Paiement Mobile Money",
   },
   {
     id: "faq-6",
     question: "Que se passe-t-il après l'envoi de mon formulaire d'inscription ?",
-    answer: "Dès validation de votre formulaire, un message de confirmation s'affiche à l'écran avec le numéro de dépôt Orange Money (+237 6 98 21 35 83). Un email récapitulatif est automatiquement transmis à notre équipe, et un agent de la Ligue vous contactera sous 24h pour confirmer votre emplacement.",
+    answer: "Dès validation de votre formulaire, un message de confirmation s'affiche à l'écran avec le numéro de dépôt Orange Money (+237 6 97 19 38 57). Un email récapitulatif est automatiquement transmis à notre équipe, et un agent de la Ligue vous contactera sous 24h pour confirmer votre emplacement.",
     category: "Stands & Réservation",
   },
   {

@@ -104,7 +104,7 @@ Chaque modification enregistrée et poussée sur GitHub via `git push origin mai
 - **Grands Concours Métiers** : Présentation des concours Pâtissier et Styliste (Cash Prize 100 000 FCFA).
 - **Galerie Médias 2025** : 20 photos et 4 vidéos HD avec filtre par onglets et modale Lightbox / Lecteur vidéo.
 - **FAQ Accordéon** : Réponses dépliantes et carte de localisation au **Parc Bois de Garoua**.
-- **Formulaires & Transaction Orange Money** : Fenêtre modale avec consignes et copie 1-clic du numéro Orange Money (`+237 6 98 21 35 83`).
+- **Formulaires & Transaction Orange Money** : Fenêtre modale avec consignes et copie 1-clic du numéro Orange Money (`+237 6 97 19 38 57`).
 - **Canaux Officiels** : Boutons directs vers WhatsApp (`+237 6 99 99 75 83`) et TikTok (`@ligue.des.leaders`).
 
 ---
