@@ -211,6 +211,13 @@ async function sendNotificationEmail(payload: {
   if (process.env.RESEND_API_KEY) {
     try {
       const resendSender = process.env.RESEND_SENDER || "Foire Garoua <onboarding@resend.dev>";
+      const recipients = notificationRecipient
+        .split(",")
+        .map((email) => email.trim())
+        .filter(Boolean);
+
+      const targetRecipients = recipients.length > 0 ? recipients : [notificationRecipient];
+
       const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -219,20 +226,29 @@ async function sendNotificationEmail(payload: {
         },
         body: JSON.stringify({
           from: resendSender,
-          to: [notificationRecipient],
+          to: targetRecipients,
           subject: `[Foire Garoua 2026] Nouvelle Inscription ${payload.type} : ${payload.details.fullName} (${payload.details.companyName})`,
           html: htmlBody,
         }),
       });
 
       const data = await response.json();
-      console.log("[Resend API Email Response]:", data);
+
+      if (!response.ok) {
+        console.error(`[Resend API Error HTTP ${response.status}]:`, JSON.stringify(data, null, 2));
+      } else {
+        console.log(`[Resend API Success]: Email envoyé avec succès vers ${targetRecipients.join(", ")} (ID: ${data?.id})`);
+      }
     } catch (resendErr) {
-      console.error("[Resend API Error]:", resendErr);
+      console.error("[Resend API Network Error]:", resendErr);
     }
+  } else {
+    console.warn(
+      "[Notification Email]: La variable d'environnement RESEND_API_KEY n'est pas configurée dans Vercel. L'email n'a pas été envoyé en direct."
+    );
   }
 
-  // 2. Envoi via Webhook générique / Formspree / Webhook Netlify (Optionnel)
+  // 2. Envoi via Webhook générique / Formspree / Zapier (Optionnel)
   if (process.env.WEBHOOK_EMAIL_URL) {
     try {
       await fetch(process.env.WEBHOOK_EMAIL_URL, {

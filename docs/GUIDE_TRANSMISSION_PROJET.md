@@ -25,7 +25,7 @@ L'ensemble de l'écosystème numérique repose sur **3 comptes clés interconnec
 |---|---|---|---|
 | **Pilier 1 : Compte Maître** | **Google Account** (Gmail / Google Drive) | Identité centrale & propriétaire ultime de tous les services. | Email + Mot de passe principal |
 | **Pilier 2 : Code Source** | **GitHub** | Stockage, sauvegarde et versionnage de tout le code source. | Connexion directe via Google (*Sign in with Google*) |
-| **Pilier 3 : Hébergeur** | **Netlify** | Serveur Web, hébergement haut débit & envoi automatique d'emails. | Connexion automatique via Google / GitHub |
+| **Pilier 3 : Hébergeur** | **Vercel** (ou Netlify) | Serveur Web haute performance, exécution Server Actions & distribution globale. | Connexion directe via GitHub (*Sign in with GitHub*) |
 
 ---
 
@@ -33,7 +33,7 @@ L'ensemble de l'écosystème numérique repose sur **3 comptes clés interconnec
 
 > [!CAUTION]
 > ### ⚠️ ACTION DE SÉCURITÉ PRIORITAIRE (À effectuer dès la réception du projet)
-> Le compte Google a été créé par le développeur pour centraliser la propriété. Pour que vous soyez le seul maître à bord :
+> Le compte Google et le dépôt GitHub centralisent la propriété :
 > 1. Connectez-vous au **Compte Google Maître** ci-dessous.
 > 2. Allez dans **Gérer votre compte Google** > **Sécurité** > **Numéros de téléphone de récupération**.
 > 3. **Supprimez le numéro de téléphone temporaire du développeur**.
@@ -50,12 +50,13 @@ L'ensemble de l'écosystème numérique repose sur **3 comptes clés interconnec
 - **URL du Répertoire Officiel** : [`https://github.com/agentliguo-prog/foire-expo.git`](https://github.com/agentliguo-prog/foire-expo.git)
 - **Accès** : Cliquez sur **"Sign in with GitHub"** puis choisissez de vous connecter avec le **Compte Google Maître**. Aucune saisie de mot de passe séparé n'est nécessaire.
 
-#### 3️⃣ Compte Netlify (Hébergement & Envoi de Mail)
-- **Tableau de bord** : [`app.netlify.com`](https://app.netlify.com)
-- **Accès** : Cliquez sur **"Log in with Google"** avec le Compte Maître.
-- **Variables d'environnement configurées sur Netlify** :
-  - `NOTIFICATION_EMAIL` : Votre adresse email de réception des formulaires d'inscriptions.
-  - `RESEND_API_KEY` : Clé d'envoi automatique des emails récapitulatifs (Service Resend gratuit 3 000 mails/mois).
+#### 3️⃣ Compte Vercel (Hébergement & Envoi d'Emails)
+- **Tableau de bord** : [`vercel.com`](https://vercel.com)
+- **Accès** : Connectez-vous via **"Continue with GitHub"**.
+- **Variables d'environnement configurées sur Vercel** (`Settings > Environment Variables`) :
+  - `RESEND_API_KEY` : Clé d'envoi automatique des emails d'inscriptions (Service Resend gratuit 3 000 mails/mois sur [resend.com](https://resend.com)).
+  - `NOTIFICATION_EMAIL` : Votre adresse email de réception des inscriptions (ex: `ligue.entrepreneurs.garoua@gmail.com`).
+  - `RESEND_SENDER` *(optionnel)* : Expéditeur (par défaut `Foire Garoua <onboarding@resend.dev>` ou votre nom de domaine vérifié).
 
 ---
 
