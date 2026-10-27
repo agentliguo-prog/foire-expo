@@ -2,9 +2,9 @@ export const EVENT_DETAILS = {
   title: "Foire d'Exposition des Entrepreneurs 2026",
   edition: "2ᵉ Édition",
   organizer: "Ligue des Leaders d'Entreprise",
-  location: "Parc Bois, Garoua",
+  location: "Stade Omnisport de Garoua",
   city: "Garoua, Nord-Cameroun",
-  dateLabel: "18 Décembre 2026",
+  dateLabel: "18, 19 et 20 Décembre 2026",
   targetDateISO: "2026-12-18T09:00:00+01:00",
   whatsappNumber: "+237699997583",
   whatsappMessage: encodeURIComponent("Bonjour ! Je souhaite obtenir des informations sur la Foire d'Exposition des Entrepreneurs 2026 à Garoua."),
@@ -188,7 +188,7 @@ export const GALLERY_MEDIA: GalleryItem[] = [
     src: "/galerie/images/IMG-20260824-WA0038.jpg",
     title: "Affluence & Dynamisme de la Foire",
     category: "Ambiance",
-    description: "Une foule enthousiaste venue célébrer l'esprit d'entreprise au Parc Bois de Garoua.",
+    description: "Une foule enthousiaste venue célébrer l'esprit d'entreprise lors de la précédente édition.",
   },
   {
     id: "photo-04",
@@ -218,7 +218,7 @@ export const GALLERY_MEDIA: GalleryItem[] = [
     id: "photo-07",
     type: "photo",
     src: "/galerie/images/IMG-20260824-WA0058.jpg",
-    title: "Ambiance & Animations au Parc Bois",
+    title: "Ambiance & Animations de la Foire",
     category: "Ambiance",
     description: "Animations culturelles et festives tout au long de la journée d'exposition.",
   },
@@ -377,7 +377,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "faq-1",
     question: "Où et quand se déroulera la Foire d'Exposition des Entrepreneurs 2026 ?",
-    answer: "La 2ᵉ Édition aura lieu le 18 Décembre 2026 sur le site prestigieux du Parc Bois de Garoua, dans la région du Nord-Cameroun. Les horaires d'ouverture au public s'étendent de 08h00 à 18h00 chaque jour.",
+    answer: "La 2ᵉ Édition aura lieu du 18 au 20 Décembre 2026 sur le site prestigieux du Stade Omnisport de Garoua (Stade Roumdé-Adjia), dans la région du Nord-Cameroun. Les horaires d'ouverture au public s'étendent de 08h00 à 18h00 chaque jour.",
     category: "Général & Lieu",
   },
   {
@@ -413,7 +413,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "faq-7",
     question: "L'accès à la Foire est-il payant pour les visiteurs ?",
-    answer: "Non, l'accès au site d'exposition du Parc Bois de Garoua est entièrement libre et gratuit pour l'ensemble du public, acheteurs, familles et visiteurs.",
+    answer: "Non, l'accès au site d'exposition du Stade Omnisport de Garoua est entièrement libre et gratuit pour l'ensemble du public, acheteurs, familles et visiteurs.",
     category: "Général & Lieu",
   },
   {

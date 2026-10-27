@@ -76,7 +76,7 @@ Phase 2
 **User stories** : US-8, US-9
 
 ### Ce qu'on livre
-La section de preuve sociale "Retour en images 2025" (galerie responsive de photos et vidéos optimisées de la 1ère édition), la section FAQ & Informations pratiques (confirmation du lieu au Parc Bois de Garoua), les boutons de redirection vers les pages TikTok et Facebook de la Ligue des Leaders d'Entreprise, ainsi qu'un audit de sécurité et de performance pré-déploiement.
+La section de preuve sociale "Retour en images 2025" (galerie responsive de photos et vidéos optimisées de la 1ère édition), la section FAQ & Informations pratiques (confirmation du lieu au Stade Omnisport de Garoua), les boutons de redirection vers les pages TikTok et Facebook de la Ligue des Leaders d'Entreprise, ainsi qu'un audit de sécurité et de performance pré-déploiement.
 
 ### Critères d'acceptation
 - [x] Galerie photo/vidéo fluide avec lazy-loading des médias de l'édition 2025.
