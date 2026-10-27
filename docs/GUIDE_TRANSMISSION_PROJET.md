@@ -2,7 +2,7 @@
 
 **Projet** : Landing Page Officielle pour la 2ᵉ Édition de la **Foire d'Exposition des Entrepreneurs**  
 **Organisateur** : Ligue des Leaders d'Entreprise (Garoua, Nord-Cameroun)  
-**Date d'événement** : **18 Décembre 2026** (Parc Bois, Garoua)  
+**Date d'événement** : **18, 19 et 20 Décembre 2026** (Stade Omnisport de Garoua)  
 **Document créé le** : 29 Août 2026  
 
 ---
@@ -100,11 +100,11 @@ Chaque modification enregistrée et poussée sur GitHub via `git push origin mai
 ## 📱 5. Synthèse des Fonctionnalités Livrées
 
 - **Header Fixe & Réactif** : Navigation fluide avec CTA *"Réserver un stand"* perpétuellement accessible sur mobile.
-- **Compte à rebours dynamique** : Calcul automatique du temps restant jusqu'au **18 Décembre 2026**.
+- **Compte à rebours dynamique** : Calcul automatique du temps restant jusqu'au **18 Décembre 2026** (dates officielles : 18 au 20 Décembre 2026).
 - **Grille des Tarifs de Stands** : Comparatif interactif des 3 formules (25 000, 35 000 et 65 000 FCFA).
 - **Grands Concours Métiers** : Présentation des concours Pâtissier et Styliste (Cash Prize 100 000 FCFA).
 - **Galerie Médias 2025** : 20 photos et 4 vidéos HD avec filtre par onglets et modale Lightbox / Lecteur vidéo.
-- **FAQ Accordéon** : Réponses dépliantes et carte de localisation au **Parc Bois de Garoua**.
+- **FAQ Accordéon** : Réponses dépliantes et carte de localisation au **Stade Omnisport de Garoua**.
 - **Formulaires & Transaction Orange Money** : Fenêtre modale avec consignes et copie 1-clic du numéro Orange Money (`+237 6 97 19 38 57`).
 - **Canaux Officiels** : Boutons directs vers WhatsApp (`+237 6 99 99 75 83`) et TikTok (`@ligue.des.leaders`).
 

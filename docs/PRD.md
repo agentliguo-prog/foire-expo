@@ -4,12 +4,12 @@
 
 Les entrepreneurs, artisans, pâtissiers et créateurs de mode de Garoua et de la région du Nord-Cameroun manquent de visibilité directe et d'opportunités pour promouvoir leurs produits et services auprès du grand public. 
 
-Pour l'organisation de la 2ᵉ édition de la **Foire d'Exposition des Entrepreneurs** (décembre 2026 au Parc Bois, Garoua), la **Ligue des Leaders d'Entreprise** a besoin d'une vitrine officielle pour centraliser la communication, rassurer les participants grâce au succès de l'édition 2025, et simplifier la réservation de stands ainsi que l'inscription aux concours métiers. Sans un canal web clair, captivant et simple, la collecte des réservations et la transmission des consignes de règlement Mobile Money manquent d'efficacité.
+Pour l'organisation de la 2ᵉ édition de la **Foire d'Exposition des Entrepreneurs** (18, 19 et 20 décembre 2026 au Stade Omnisport de Garoua), la **Ligue des Leaders d'Entreprise** a besoin d'une vitrine officielle pour centraliser la communication, rassurer les participants grâce au succès de l'édition 2025, et simplifier la réservation de stands ainsi que l'inscription aux concours métiers. Sans un canal web clair, captivant et simple, la collecte des réservations et la transmission des consignes de règlement Mobile Money manquent d'efficacité.
 
 ## 2. Solution
 
 Une landing page événementielle moderne, dynamique et ultra-simple dédiée à la Foire d'Exposition des Entrepreneurs 2026. Elle permet aux visiteurs de :
-* Découvrir l'événement, son lieu (**Parc Bois, Garoua**) et la date (décembre 2026) avec un compte à rebours dynamique.
+* Découvrir l'événement, son lieu (**Stade Omnisport de Garoua**) et la date (18, 19 et 20 décembre 2026) avec un compte à rebours dynamique.
 * Rassurer les souscripteurs grâce à une galerie médias ("Retour en images 2025").
 * Consulter et comparer les 3 formules de stand (**25 000, 35 000 et 65 000 FCFA**) ainsi que les 2 concours (**Meilleur Pâtissier** et **Meilleur Tailleur/Styliste** à 10 000 FCFA).
 * S'inscrire en quelques clics via une fenêtre modale épurée.
@@ -25,7 +25,7 @@ Une landing page événementielle moderne, dynamique et ultra-simple dédiée à
 
 ## 4. User Stories
 
-* **US-1** : En tant que visiteur, je me déplace sur la page pour consulter la date, le lieu (Parc Bois, Garoua) et le compte à rebours dynamique en haut de page, afin de connaître l'échéance de l'événement.
+* **US-1** : En tant que visiteur, je me déplace sur la page pour consulter la date, le lieu (Stade Omnisport de Garoua) et le compte à rebours dynamique en haut de page, afin de connaître l'échéance de l'événement.
 * **US-2** : En tant qu'exposant potentiel, je veux comparer les 3 formules de stand (25 000 FCFA, 35 000 FCFA, 65 000 FCFA) et leurs équipements associés (tables, chaises, badges, vidéo et affiche de pub), afin de choisir l'offre adaptée à mon activité.
 * **US-3** : En tant que candidat à un concours, je veux consulter les informations des concours (Pâtissier et Tailleur/Styliste, frais de 10 000 FCFA, récompenses), afin de décider de ma participation.
 * **US-4** : En tant qu'exposant, je veux cliquer sur "Réserver ce stand" pour ouvrir la modale pré-sélectionnée et saisir mes informations (Nom complet, Nom entreprise, Activité, Description, Logo, Téléphone), afin de transmettre ma demande.

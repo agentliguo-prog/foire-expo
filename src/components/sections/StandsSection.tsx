@@ -29,7 +29,7 @@ export const StandsSection: React.FC<StandsSectionProps> = ({ onSelectStand }) =
         </h2>
 
         <p className="font-body text-slate-300 text-xs sm:text-lg leading-relaxed">
-          Exposez au Parc Bois de Garoua devant des milliers de visiteurs et développez votre réseau commercial. Tous nos stands incluent du matériel et de la promotion publicitaire.
+          Exposez au Stade Omnisport de Garoua devant des milliers de visiteurs et développez votre réseau commercial. Tous nos stands incluent du matériel et de la promotion publicitaire.
         </p>
       </div>
 

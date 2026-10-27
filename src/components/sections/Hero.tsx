@@ -11,11 +11,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
     <section
       id="accueil"
-      className="relative pt-6 pb-16 sm:pt-16 sm:pb-28 overflow-hidden bg-hero-glow border-b border-white/5"
+      className="relative pt-6 pb-16 sm:pt-20 sm:pb-32 overflow-hidden bg-navy-main border-b border-white/5"
     >
+      {/* Arrière-plan héro : Stade Omnisport de Garoua avec masquage Dark Navy élégant */}
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+        <img
+          src="/stade-omnisport-garoua.jpg"
+          alt="Stade Omnisports Roumdé-Adjia de Garoua"
+          className="w-full h-full object-cover object-top scale-105 filter brightness-[0.28] contrast-[1.15] saturate-[1.1] transition-transform duration-1000"
+        />
+        {/* Dégradés superposés pour préserver le contraste Dark Navy et masquer proprement le bandeau bas */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-main/90 via-navy-main/75 to-navy-main"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-navy-main/60 to-navy-main"></div>
+      </div>
+
       {/* Halos de lumière décoratifs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[200px] sm:h-[300px] bg-brand-blue/15 blur-[100px] rounded-full pointer-events-none -z-10"></div>
-      <div className="absolute top-1/3 right-4 w-[200px] sm:w-[300px] h-[150px] sm:h-[200px] bg-gold/10 blur-[80px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[200px] sm:h-[300px] bg-brand-blue/20 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute top-1/3 right-4 w-[200px] sm:w-[300px] h-[150px] sm:h-[200px] bg-gold/15 blur-[80px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="max-w-[1100px] mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Organisateur officiel avec logo */}
@@ -30,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <span className="truncate">Présenté par la <strong className="text-white font-semibold">Ligue des Leaders d'Entreprise</strong></span>
         </div>
 
-        {/* Badge d'Événement */}
+        {/* Badge d'Événement & Lieu */}
         <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-[11px] sm:text-sm font-semibold tracking-wide shadow-blue-glow">
             <Sparkles className="w-3.5 h-3.5 text-brand-light shrink-0" />
@@ -46,10 +58,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           </span>
         </h1>
 
-        {/* Sous-titre */}
+        {/* Sous-titre avec mise en valeur des dates et du nouveau lieu */}
         <p className="font-body text-slate-300 text-xs sm:text-xl max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 px-1">
-          Le rendez-vous économique majeur de Garoua. Exposez vos savoir-faire,
-          développez votre réseau et gagnez jusqu'à{" "}
+          Le rendez-vous économique majeur de Garoua du <strong className="text-white font-semibold">18 au 20 Décembre 2026</strong> au <strong className="text-brand-light font-semibold">{EVENT_DETAILS.location}</strong>. Exposez vos savoir-faire, développez votre réseau et gagnez jusqu&apos;à{" "}
           <strong className="text-gold font-semibold whitespace-nowrap">100 000 FCFA</strong> aux
           concours métiers.
         </p>
