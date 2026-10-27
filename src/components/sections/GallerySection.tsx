@@ -70,10 +70,12 @@ export function GallerySection() {
   return (
     <section
       id="galerie"
-      className="py-16 sm:py-24 px-4 sm:px-6 max-w-[1150px] mx-auto border-b border-white/10 relative"
+      className="w-full bg-[#050812] py-16 sm:py-24 border-b border-white/5 relative z-10"
     >
       {/* Halo de fond lumineux */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-light/5 blur-3xl rounded-full pointer-events-none -z-10" />
+
+      <div className="max-w-[1150px] mx-auto px-4 sm:px-6">
 
       {/* En-tête de Section */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
@@ -285,6 +287,7 @@ export function GallerySection() {
           </div>
         </div>
       )}
+      </div>
     </section>
   );
 }

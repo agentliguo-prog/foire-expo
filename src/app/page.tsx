@@ -54,7 +54,7 @@ export default function HomePage() {
       </main>
 
       {/* Footer Moderne & Réseaux Sociaux Officiels */}
-      <footer className="bg-navy-dark border-t border-white/10 py-10 sm:py-14 px-4 text-xs text-slate-400">
+      <footer className="bg-[#050812] border-t border-white/10 py-10 sm:py-14 px-4 text-xs text-slate-400">
         <div className="max-w-[1100px] mx-auto space-y-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10 text-center md:text-left">
             {/* Branding Ligue */}

@@ -10,28 +10,29 @@ interface StandsSectionProps {
 
 export const StandsSection: React.FC<StandsSectionProps> = ({ onSelectStand }) => {
   return (
-    <section id="stands" className="py-12 sm:py-28 px-3 sm:px-6 lg:px-8 max-w-[1100px] mx-auto relative z-10">
+    <section id="stands" className="w-full bg-[#050812] py-14 sm:py-28 px-3 sm:px-6 lg:px-8 border-b border-white/5 relative z-10">
       {/* Halo lumineux d'arrière-plan */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[200px] sm:h-[300px] bg-brand-blue/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
 
-      {/* En-tête de section */}
-      <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-3 sm:mb-4 shadow-blue-glow">
-          <Store className="w-3.5 h-3.5 text-brand-light shrink-0" />
-          <span>Espace Exposition 2026</span>
+      <div className="max-w-[1100px] mx-auto">
+        {/* En-tête de section */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-3 sm:mb-4 shadow-blue-glow">
+            <Store className="w-3.5 h-3.5 text-brand-light shrink-0" />
+            <span>Espace Exposition 2026</span>
+          </div>
+
+          <h2 className="font-display font-black text-2xl sm:text-5xl text-white tracking-tight leading-tight mb-3 sm:mb-4">
+            Choisissez la Formule de Stand{" "}
+            <span className="bg-gradient-to-r from-brand-light to-brand-blue bg-clip-text text-transparent">
+              Adaptée à Votre Marque
+            </span>
+          </h2>
+
+          <p className="font-body text-slate-300 text-xs sm:text-lg leading-relaxed">
+            Exposez au Stade Omnisport de Garoua devant des milliers de visiteurs et développez votre réseau commercial. Tous nos stands incluent du matériel et de la promotion publicitaire.
+          </p>
         </div>
-
-        <h2 className="font-display font-black text-2xl sm:text-5xl text-white tracking-tight leading-tight mb-3 sm:mb-4">
-          Choisissez la Formule de Stand{" "}
-          <span className="bg-gradient-to-r from-brand-light to-brand-blue bg-clip-text text-transparent">
-            Adaptée à Votre Marque
-          </span>
-        </h2>
-
-        <p className="font-body text-slate-300 text-xs sm:text-lg leading-relaxed">
-          Exposez au Stade Omnisport de Garoua devant des milliers de visiteurs et développez votre réseau commercial. Tous nos stands incluent du matériel et de la promotion publicitaire.
-        </p>
-      </div>
 
       {/* Grille des 3 Formules de Stands */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
@@ -108,6 +109,7 @@ export const StandsSection: React.FC<StandsSectionProps> = ({ onSelectStand }) =
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );
