@@ -13,21 +13,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       id="accueil"
       className="relative pt-6 pb-16 sm:pt-20 sm:pb-32 overflow-hidden bg-navy-main border-b border-white/5"
     >
-      {/* Arrière-plan héro : Stade Omnisport de Garoua avec masquage Dark Navy élégant */}
-      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+      {/* Arrière-plan héro : Image du Stade Omnisport de Garoua (visible et lisible) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
           src="/stade-omnisport-garoua.jpg"
-          alt="Stade Omnisports Roumdé-Adjia de Garoua"
-          className="w-full h-full object-cover object-top scale-105 filter brightness-[0.28] contrast-[1.15] saturate-[1.1] transition-transform duration-1000"
+          alt="Stade Omnisports de Garoua"
+          className="w-full h-full object-cover object-[center_25%] opacity-50 sm:opacity-55 brightness-95 contrast-105"
         />
-        {/* Dégradés superposés pour préserver le contraste Dark Navy et masquer proprement le bandeau bas */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-main/90 via-navy-main/75 to-navy-main"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-navy-main/60 to-navy-main"></div>
+        {/* Dégradés d'ambiance Dark Navy pour garantir une lisibilité parfaite des textes */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-main/75 via-navy-main/55 to-navy-main"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_30%,_rgba(11,19,37,0.85)_100%)]"></div>
       </div>
 
       {/* Halos de lumière décoratifs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[200px] sm:h-[300px] bg-brand-blue/20 blur-[100px] rounded-full pointer-events-none -z-10"></div>
-      <div className="absolute top-1/3 right-4 w-[200px] sm:w-[300px] h-[150px] sm:h-[200px] bg-gold/15 blur-[80px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[200px] sm:h-[300px] bg-brand-blue/25 blur-[100px] rounded-full pointer-events-none z-[1]"></div>
+      <div className="absolute top-1/3 right-4 w-[200px] sm:w-[300px] h-[150px] sm:h-[200px] bg-gold/20 blur-[80px] rounded-full pointer-events-none z-[1]"></div>
 
       <div className="max-w-[1100px] mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Organisateur officiel avec logo */}
